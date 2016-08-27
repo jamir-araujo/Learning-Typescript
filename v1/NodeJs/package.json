@@ -1,0 +1,19 @@
+{
+  "name": "learning-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jamir.araujo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "es6-promise": "^3.2.1",
+    "express": "^4.14.0",
+    "http-errors": "^1.5.0",
+    "http-status": "^0.2.3"
+  }
+}
