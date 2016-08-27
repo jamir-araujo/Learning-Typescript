@@ -1,7 +1,7 @@
 import * as Express from "express";
 import * as peopleController from "./Controllers/peopleController";
 
-export function config(app: Express.Application) {
+export function getRoutes(): Express.Router {
     let router = Express.Router();
 
     router.get("/people", peopleController.getAll);
@@ -14,5 +14,5 @@ export function config(app: Express.Application) {
         .put(peopleController.put)
         .delete(peopleController.deletePerson);
 
-    app.use("/api", router);
+    return router;
 }

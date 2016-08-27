@@ -1,10 +1,10 @@
-var Express = require("express");
-var peopleController = require("./Controllers/peopleController");
+const Express = require("express");
+const peopleController = require("./Controllers/peopleController");
 
-exports.config = config;
+exports.getRoutes = getRoutes;
 
-function config() {
-    var router = Express.Router();
+function getRoutes() {
+    let router = Express.Router();
 
     router.get("/people", peopleController.getAll);
     router.get("/people/:name", peopleController.getByName);

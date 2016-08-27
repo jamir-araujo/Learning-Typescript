@@ -1,16 +1,17 @@
-var Express = require("express");
-var Http = require("http");
-var BadyParser = require("body-parser");
-var Routes = require("./routes");
+const Express = require("express");
+const Http = require("http");
+const BadyParser = require("body-parser");
+const Routes = require("./routes");
 
-var app = Express();
+let app = Express();
 app.use(BadyParser.urlencoded({ extended: false }));
 app.use(BadyParser.json());
 
-Routes.config(app);
+let routes = Routes.getRoutes();
 
-var port = process.env.PORT || 8080;
+app.use("/api", routes);
 
+let port = process.env.PORT || 8080;
 Http.createServer(app).listen(port, function () {
     console.log("Magic happens on port " + port);
 });

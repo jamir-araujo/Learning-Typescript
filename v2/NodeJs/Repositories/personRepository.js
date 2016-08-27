@@ -1,4 +1,4 @@
-var fs = require("fs");
+const fs = require("fs");
 
 exports.getAll = getAll;
 exports.getById = getById;
@@ -17,7 +17,7 @@ function getAll() {
 
 function getById(id) {
     return new Promise(function (resolve, reject) {
-        var result = people.filter(function (item) {
+        let result = people.filter(function (item) {
             return item.id == id;
         });
 
@@ -31,7 +31,7 @@ function getById(id) {
 
 function getByName(name) {
     return new Promise(function (resolve) {
-        var result = people.filter(function (item) {
+        let result = people.filter(function (item) {
             return item.name.indexOf(name) == 0;
         });
 

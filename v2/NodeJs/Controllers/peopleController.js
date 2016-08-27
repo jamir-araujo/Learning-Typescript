@@ -1,5 +1,5 @@
-var status = require("http-status");
-var personRepository = require("../Repositories/personRepository");
+const status = require("http-status");
+const personRepository = require("../Repositories/personRepository");
 
 exports.getAll = getAll;
 exports.getById = getById;
@@ -9,7 +9,7 @@ exports.put = put;
 exports.delete = _delete;
 
 function getAll(request, response) {
-    var promise = personRepository.getAll();
+    let promise = personRepository.getAll();
 
     promise.then(function (people) {
         response.status(status.OK).json(people);
@@ -19,7 +19,7 @@ function getAll(request, response) {
 }
 
 function getById(request, response) {
-    var promise = personRepository.getById(request.params.id);
+    let promise = personRepository.getById(request.params.id);
 
     promise.then(function (person) {
         response.status(status.OK).json(person);
@@ -29,7 +29,7 @@ function getById(request, response) {
 }
 
 function getByName(request, response) {
-    var promise = personRepository.getByName(request.params.name);
+    let promise = personRepository.getByName(request.params.name);
 
     promise.then(function (person) {
         response.status(status.OK).json(person);
@@ -37,7 +37,7 @@ function getByName(request, response) {
 }
 
 function post(request, response) {
-    var promise = personRepository.insert(request.body);
+    let promise = personRepository.insert(request.body);
 
     promise.then(function (person) {
         response.status(status.CREATED).json(person);
@@ -47,7 +47,7 @@ function post(request, response) {
 }
 
 function put(request, response) {
-    var promise = personRepository.update(request.params.id, request.body);
+    let promise = personRepository.update(request.params.id, request.body);
 
     promise.then(function (person) {
         response.sendStatus(status.MOVED_PERMANENTLY);
@@ -63,7 +63,7 @@ function put(request, response) {
 }
 
 function _delete(request, response) {
-    var promise = personRepository.delete(request.params.id);
+    let promise = personRepository.delete(request.params.id);
 
     promise.then(function () {
         response.sendStatus(status.OK);

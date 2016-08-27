@@ -7,7 +7,9 @@ let app = Express();
 app.use(BadyParser.urlencoded({ extended: false }));
 app.use(BadyParser.json());
 
-Routes.config(app);
+let routes = Routes.getRoutes();
+
+app.use("/api", routes);
 
 let port = process.env.PORT || 8080;
 app.listen(port, () => {
