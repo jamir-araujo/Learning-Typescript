@@ -1,0 +1,22 @@
+{
+  "name": "Contact-List",
+  "authors": [
+    "Jamir Castro Araújo <jamir.c.a@hotmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "typings"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.8",
+    "bootstrap": "^3.3.7",
+    "es6-promise": "^3.2.2",
+    "requirejs": "^2.2.0"
+  }
+}
