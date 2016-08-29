@@ -31,6 +31,7 @@ node_modules
 jspm_packages
 typings
 Build
+bower_components
 
 # Optional npm cache directory
 .npm
