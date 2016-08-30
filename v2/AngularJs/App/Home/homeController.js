@@ -6,9 +6,10 @@ define(function (require, exports) {
         var vm = this;
 
         vm.updateList = updateList;
+        vm.message = "isso é um teste";
 
         function updateList() {
-
+            
         }
     }
 
