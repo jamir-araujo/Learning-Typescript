@@ -1,5 +1,6 @@
 define(["exports"], function (exports) {
     PeopleService.$inject = ["$http", "configValues"];
+    PeopleService.name = "PeopleService";
 
     function PeopleService($http, configValues) {
         var baseUrl = configValues.serverUrl;
@@ -28,4 +29,6 @@ define(["exports"], function (exports) {
             return $http.delete(baseUrl + "/api/person/" + id);
         }
     }
+
+    exports.default = PeopleService;
 })

@@ -5,12 +5,14 @@ define(function (require, exports) {
     function homeController() {
         var vm = this;
 
-        vm.updateList = updateList;
+        vm.loadList = loadList;
         vm.message = "isso é um teste";
 
-        function updateList() {
+        function loadList() {
             
         }
+
+        loadList();
     }
 
     exports.default = homeController;
