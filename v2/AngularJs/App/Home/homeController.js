@@ -1,8 +1,8 @@
-define(function (require, exports) {
+define(["require", "exports"], function (require, exports) {
     homeController.name = "homeController";
-    homeController.$inject = [];
+    homeController.$inject = ["peopleService"];
 
-    function homeController() {
+    function homeController(peopleService) {
         var vm = this;
 
         vm.loadList = loadList;

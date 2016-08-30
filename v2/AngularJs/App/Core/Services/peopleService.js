@@ -1,6 +1,6 @@
 define(["exports"], function (exports) {
     PeopleService.$inject = ["$http", "configValues"];
-    PeopleService.name = "PeopleService";
+    PeopleService.name = "peopleService";
 
     function PeopleService($http, configValues) {
         var baseUrl = configValues.serverUrl;
