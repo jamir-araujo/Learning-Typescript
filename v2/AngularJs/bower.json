@@ -1,5 +1,5 @@
 {
-  "name": "Contact-List",
+  "name": "ContactList",
   "authors": [
     "Jamir Castro Araújo <jamir.c.a@hotmail.com>"
   ],
@@ -17,6 +17,7 @@
     "angular": "angularjs#^1.5.8",
     "bootstrap": "^3.3.7",
     "es6-promise": "^3.2.2",
-    "requirejs": "^2.2.0"
+    "requirejs": "^2.2.0",
+    "angular-route": "^1.5.8"
   }
 }

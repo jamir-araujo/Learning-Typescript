@@ -1,5 +1,5 @@
 {
-  "name": "Contact-List",
+  "name": "ContactList",
   "dependencies": {},
   "globalDependencies": {
     "angular": "registry:dt/angular#1.5.0+20160829152510",
