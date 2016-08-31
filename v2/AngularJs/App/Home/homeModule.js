@@ -1,7 +1,6 @@
 define(["exports", "Core/coreModule", "Home/homeController", "Core/Services/peopleService"], function (exports, coreModule, homeController, peopleService) {
-    var name = "homeModule";
 
-    angular.module(name, ["ngRoute", coreModule.name])
+    return angular.module("homeModule", ["ngRoute", coreModule.name])
         .controller(homeController.name, homeController)
         .config(function ($routeProvider) {
             $routeProvider.when("/Home", {
@@ -12,5 +11,4 @@ define(["exports", "Core/coreModule", "Home/homeController", "Core/Services/peop
             });
         });
 
-    exports.name = name
 });
