@@ -1,4 +1,4 @@
-define(["require", "exports"], function (require, exports) {
+define(function () {
     homeController.name = "homeController";
     homeController.$inject = ["peopleService"];
 
@@ -7,13 +7,17 @@ define(["require", "exports"], function (require, exports) {
 
         vm.loadList = loadList;
         vm.message = "isso é um teste";
+        vm.people = [];
 
         function loadList() {
-            
+            peopleService.getAll()
+                .then(function (people) {
+                    vm.people = people;
+                });
         }
 
         loadList();
     }
 
-    exports.default = homeController;
+    return homeController;
 });
