@@ -4,6 +4,7 @@
   "globalDependencies": {
     "body-parser": "registry:dt/body-parser#0.0.0+20160619023215",
     "cookie-parser": "registry:dt/cookie-parser#1.3.4+20160316155526",
+    "cors": "registry:dt/cors#0.0.0+20160708202709",
     "express": "registry:dt/express#4.0.0+20160708185218",
     "express-serve-static-core": "registry:dt/express-serve-static-core#4.0.0+20160819131900",
     "http-errors": "registry:dt/http-errors#1.3.1+20160711153644",

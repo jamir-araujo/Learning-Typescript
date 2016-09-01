@@ -10,5 +10,4 @@ define(["exports", "Core/coreModule", "Home/homeController", "Core/Services/peop
                 name: "HomePage"
             });
         });
-
 });
