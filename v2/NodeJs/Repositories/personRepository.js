@@ -1,4 +1,5 @@
 const fs = require("fs");
+const UUID = require("uuid")
 
 exports.getAll = getAll;
 exports.getById = getById;
@@ -41,6 +42,8 @@ function getByName(name) {
 
 function insert(person) {
     return new Promise(function (resolve, reject) {
+        person.id = UUID.generate();
+
         people.push(person);
 
         savePeopleList(people)
