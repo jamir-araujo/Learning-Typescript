@@ -1,6 +1,6 @@
-define(["exports", "Core/Services/peopleService"], function (exports, peopleService) {
+define(["exports", "Core/Services/peopleService", "json!../../config.json"], function (exports, peopleService, config) {
 
     return angular.module("coreModule", [])
-        .value("configValues", { serverUrl: "http://localhost:8080" })
+        .value("configValues", config)
         .factory(peopleService.name, peopleService);
 });
