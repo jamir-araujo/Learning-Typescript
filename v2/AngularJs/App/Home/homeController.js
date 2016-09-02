@@ -1,14 +1,15 @@
 define(function () {
     homeController.name = "homeController";
-    homeController.$inject = ["peopleService"];
+    homeController.$inject = ["peopleService", "$location"];
 
-    function homeController(peopleService) {
+    function homeController(peopleService, $location) {
         var vm = this;
 
         vm.people = [];
 
         vm.edit = edit;
         vm.delete = _delete;
+        vm.createNew = createNew;
 
         function loadList() {
             peopleService.getAll()
@@ -18,7 +19,7 @@ define(function () {
         }
 
         function edit(person) {
-
+            $location.path("/person/" + person.id);
         }
 
         function _delete(person) {
@@ -29,6 +30,10 @@ define(function () {
                 }).catch(function (error) {
                     alert("deu merda!");
                 });
+        }
+
+        function createNew() {
+            
         }
 
         loadList();
