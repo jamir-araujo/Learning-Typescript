@@ -1,5 +1,5 @@
 const fs = require("fs");
-const UUID = require("uuid")
+const UUID = require("node-uuid")
 
 exports.getAll = getAll;
 exports.getById = getById;
@@ -42,7 +42,7 @@ function getByName(name) {
 
 function insert(person) {
     return new Promise(function (resolve, reject) {
-        person.id = UUID.generate();
+        person.id = UUID.v4();
 
         people.push(person);
 
