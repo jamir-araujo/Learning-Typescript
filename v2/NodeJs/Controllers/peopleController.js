@@ -50,7 +50,7 @@ function put(request, response) {
     let promise = personRepository.update(request.params.id, request.body);
 
     promise.then(function (person) {
-        response.sendStatus(status.MOVED_PERMANENTLY);
+        response.status(status.OK).json(person);
     }).catch(function (error) {
         if (error) {
             if (error.notFound) {

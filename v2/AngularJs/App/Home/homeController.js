@@ -33,7 +33,7 @@ define(function () {
         }
 
         function createNew() {
-            
+            $location.path("/person");
         }
 
         loadList();
