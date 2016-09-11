@@ -6,10 +6,12 @@ define(function () {
         var vm = this;
 
         vm.people = [];
+        vm.search = "";
 
         vm.edit = edit;
         vm.delete = _delete;
         vm.createNew = createNew;
+        vm.searchChange = searchChange;
 
         function loadList() {
             peopleService.getAll()
@@ -34,6 +36,16 @@ define(function () {
 
         function createNew() {
             $location.path("/person");
+        }
+
+        function searchChange() {
+            peopleService.getByName(vm.search)
+                .then(function (people) { 
+                    vm.people = people;
+                })
+                .catch(function (error) {
+                    alert("deu merda!");
+                 });
         }
 
         loadList();

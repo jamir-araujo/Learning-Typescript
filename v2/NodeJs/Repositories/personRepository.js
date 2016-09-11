@@ -32,8 +32,9 @@ function getById(id) {
 
 function getByName(name) {
     return new Promise(function (resolve) {
-        let result = people.filter(function (item) {
-            return item.name.indexOf(name) == 0;
+        let result = people.filter(function (person) {
+            let personName = person.name.toUpperCase();
+            return personName.indexOf(name.toUpperCase()) >= 0;
         });
 
         resolve(result);
