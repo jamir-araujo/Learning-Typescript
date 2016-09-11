@@ -1,9 +1,8 @@
-define(function (main) {
-    "use strict"
+define(["exports", "Home/homeModule"], function (exports, homeModule) {
 
-    angular.module("Contact-List", ["ngAnimate", "ngRoute", "ngResource"])
+    return angular.module("ContactList", ["ngRoute", homeModule.name])
         .config(function ($locationProvider, $routeProvider) {
             $locationProvider.html5Mode(true);
-            $routeProvider.otherwise({ redirectTo: "/Home" });
+            $routeProvider.otherwise({ redirectTo: "/home" });
         });
 });

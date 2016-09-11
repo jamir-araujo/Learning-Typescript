@@ -1,4 +1,5 @@
 const fs = require("fs");
+const UUID = require("node-uuid")
 
 exports.getAll = getAll;
 exports.getById = getById;
@@ -31,8 +32,9 @@ function getById(id) {
 
 function getByName(name) {
     return new Promise(function (resolve) {
-        let result = people.filter(function (item) {
-            return item.name.indexOf(name) == 0;
+        let result = people.filter(function (person) {
+            let personName = person.name.toUpperCase();
+            return personName.indexOf(name.toUpperCase()) >= 0;
         });
 
         resolve(result);
@@ -41,6 +43,8 @@ function getByName(name) {
 
 function insert(person) {
     return new Promise(function (resolve, reject) {
+        person.id = UUID.v4();
+
         people.push(person);
 
         savePeopleList(people)

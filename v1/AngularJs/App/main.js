@@ -1,7 +1,14 @@
-require(["app"], function(appModule) {
-    "use strict"
+require.config({
+    baseUrl: "/App",
+    paths: {
+        text: "../bower_components/requirejs-plugins/lib/text",
+        json: "../bower_components/requirejs-plugins/src/json"
+    }
+});
 
-     angular.element().ready(function () {
-        angular.bootstrap(document, ["Contact-List"]);
+require(["app"], function (app) {
+
+    angular.element().ready(function () {
+        angular.bootstrap(document, [app.name]);
     });
 });
