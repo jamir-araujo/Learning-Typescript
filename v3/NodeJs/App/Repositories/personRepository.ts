@@ -1,21 +1,18 @@
 import * as fs from "fs";
+import * as UUID from "node-uuid";
 
 var people: Person[];
 
 export function getAll(): Promise<Person[]> {
-    return new Promise(function (resolve) {
-        resolve(people);
-    });
+    return new Promise((resolve) => resolve(people));
 }
 
-export function getById(id: number): Promise<Person> {
-    return new Promise(function (resolve, reject) {
-        let result = people.filter(function (item) {
-            return item.id == id;
-        });
+export function getById(id: string): Promise<Person> {
+    return new Promise((resolve, reject) => {
+        let results = people.filter(item => item.id == id);
 
-        if (result.length != 0) {
-            resolve(result[0]);
+        if (results.length != 0) {
+            resolve(results[0]);
         } else {
             reject("Not Found");
         }
@@ -23,17 +20,20 @@ export function getById(id: number): Promise<Person> {
 }
 
 export function getByName(name: string): Promise<Person[]> {
-    return new Promise(function (resolve) {
-        let result = people.filter(function (item) {
-            return item.name.indexOf(name) == 0;
+    return new Promise((resolve) => {
+        let results = people.filter(person => {
+            let personName = person.name.toUpperCase();
+            return personName.indexOf(name.toUpperCase()) >= 0;
         });
 
-        resolve(result);
+        resolve(results);
     });
 }
 
 export function insert(person: Person): Promise<Person> {
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
+        person.id = UUID.v4();
+
         people.push(person);
 
         savePeopleList(people)
@@ -42,8 +42,8 @@ export function insert(person: Person): Promise<Person> {
     });
 }
 
-export function update(id: number, person: Person): Promise<Person> {
-    return new Promise(function (resolve, reject) {
+export function update(id: string, person: Person): Promise<Person> {
+    return new Promise((resolve, reject) => {
         let index = people.findIndex(person => person.id == id);
         if (index >= 0) {
             people[index] = person;
@@ -57,8 +57,8 @@ export function update(id: number, person: Person): Promise<Person> {
     });
 }
 
-export function deletePerson(id: number): Promise<void> {
-    return new Promise<void>(function (resolve, reject) {
+export function deletePerson(id: string): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
         let index = people.findIndex(person => person.id == id);
         if (index >= 0) {
             people.splice(index, 1);
@@ -73,9 +73,9 @@ export function deletePerson(id: number): Promise<void> {
 }
 
 
-function savePeopleList(people): Promise<any> {
-    return new Promise(function (resolve, reject) {
-        fs.writeFile("Data/People.json", JSON.stringify(people, null, "  "), function (error) {
+function savePeopleList(people: Person[]): Promise<any> {
+    return new Promise((resolve, reject) => {
+        fs.writeFile("Data/People.json", JSON.stringify(people, null, "  "), (error) => {
             if (error) {
                 reject(error);
             } else {
@@ -86,8 +86,8 @@ function savePeopleList(people): Promise<any> {
 }
 
 function loadPeopleList(): Promise<Person[]> {
-    return new Promise<Person[]>(function (resolve, reject) {
-        fs.readFile("Data/People.json", function (error, data) {
+    return new Promise<Person[]>((resolve, reject) => {
+        fs.readFile("Data/People.json", (error, data) => {
             if (error) {
                 reject(error);
             } else {
@@ -97,6 +97,6 @@ function loadPeopleList(): Promise<Person[]> {
     });
 }
 
-loadPeopleList().then(function (data) {
+loadPeopleList().then((data) => {
     people = data;
 });

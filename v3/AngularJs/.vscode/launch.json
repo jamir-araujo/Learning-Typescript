@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch index.html",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/lite-server/bin/lite-server",
+            "args": [
+                "Build"
+            ],
+            "runtimeExecutable": null,
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "stopOnEntry": false,
+            "sourceMaps": true,
+            "preLaunchTask": null
+        }
+    ]
+}
