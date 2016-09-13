@@ -8,6 +8,7 @@ var path = require("path");
 
 var TS_FILES_PATH = "./App/**/*.ts";
 var MAIN_D_TS_PATH = "./typings/index.d.ts";
+var FIXES_D_TS_PATH = "./typings_fixes/index.d.ts";
 var BUILD_FOLDER_PATH = "./Build";
 var ALL_FILES_PATH = "./App/**/*.*";
 var TS_CONFIG_FILE_PATH = "tsconfig.json";
@@ -32,7 +33,7 @@ gulp.task(tasks.compile, function () {
         typescript: typescript
     });
 
-    return gulp.src([MAIN_D_TS_PATH, TS_FILES_PATH])
+    return gulp.src([MAIN_D_TS_PATH, FIXES_D_TS_PATH, TS_FILES_PATH])
         .pipe(sourcemaps.init())
         .pipe(ts(tsProject))
         .pipe(sourcemaps.write("./", { sourceRoot: SOURCE_ROOT }))
