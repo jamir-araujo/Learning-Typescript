@@ -11,6 +11,7 @@
 * ``` npm i gulp -g ```
 * ``` npm i typings -g ```
 * ``` npm i lite-server -g ```
+* ``` npm i bower -g ```
 
 ## configurações do vscode (opcional)
 * File -> Preferences -> User Settings
