@@ -1,5 +1,17 @@
 # Learning-Typescript
 
+## Dependencias para instalar
+* [Nodejs](https://nodejs.org/en/)
+* [Visual Studio Code](https://code.visualstudio.com/)
+
+## Dependencias globais do nodejs
+
+### Executar no cmd
+
+* ``` npm i gulp -g ```
+* ``` npm i typings -g ```
+* ``` npm i lite-server -g ```
+
 ## configurações do vscode (opcional)
 * File -> Preferences -> User Settings
 ```json
@@ -50,7 +62,7 @@
 ]
 ```
 
-## extensões para baixar (opcional)
+## extensões do vs code para baixar (opcional)
 * Npm Intellisense
 * Path Intellisense
 * Bower
