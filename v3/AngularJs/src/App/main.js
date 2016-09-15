@@ -1,3 +1,7 @@
+require.config({
+    
+});
+
 require(["app"], function (app) {
 
     angular.element().ready(function () {
