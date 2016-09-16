@@ -1,19 +1,18 @@
-import {ILocationService, route, IPromise} from "angular";
 import PeopleService from "../Core/Services/PeopleService";
 
 export default class PersonEditController {
     private person: Person;
 
     static $inject = ["PeopleService", "$location", "$routeParams"];
-    static name = "PersonEditController";
-    constructor(private peopleService: PeopleService, private location: ILocationService, private routeParams: route.IRouteParamsService) {
+    static className = "PersonEditController";
+    constructor(private peopleService: PeopleService, private location: ng.ILocationService, private routeParams: ng.route.IRouteParamsService) {
         if (this.routeParams["id"]) {
             this.loadPerson(this.routeParams["id"]);
         }
     }
 
     public save(): void {
-        let response: IPromise<Person>;
+        let response: ng.IPromise<Person>;
 
         if (this.person.id) {
             response = this.peopleService.put(this.person);

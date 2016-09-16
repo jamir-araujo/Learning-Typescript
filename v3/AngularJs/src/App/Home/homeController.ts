@@ -1,4 +1,3 @@
-import {ILocationService} from "angular";
 import PeopleService from "../Core/Services/PeopleService";
 
 export default class HomeController {
@@ -6,14 +5,14 @@ export default class HomeController {
     private search: string;
 
     static $inject = ["PeopleService", "$location"];
-    static name = "HomeController";
-    constructor(private peopleService: PeopleService, private location: ILocationService) {
-
+    static className = "HomeController";
+    constructor(private peopleService: PeopleService, private location: ng.ILocationService) {
+        this.loadList();
     }
 
     public loadList(): void {
         this.peopleService.getAll()
-            .catch(people => this.people = people);
+            .then(people => this.people = people);
     }
 
     public edit(person: Person): void {

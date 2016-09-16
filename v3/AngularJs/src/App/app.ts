@@ -1,4 +1,3 @@
-import * as angular from "angular";
 import HomeController from "./Home/HomeModule";
 
 export default angular.module("ContactList", ["ngRoute", HomeController.name])

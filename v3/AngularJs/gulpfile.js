@@ -39,7 +39,7 @@ gulp.task(tasks.compile, function () {
     return gulp.src([MAIN_D_TS_PATH, FIXES_D_TS_PATH, TS_FILES_PATH])
         .pipe(sourcemaps.init())
         .pipe(ts(tsProject))
-        .pipe(sourcemaps.write("./", { sourceRoot: SOURCE_ROOT }))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(BUILD_FOLDER_PATH));
 });
 
