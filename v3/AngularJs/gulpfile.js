@@ -4,7 +4,6 @@ var sourcemaps = require("gulp-sourcemaps");
 var typescript = require("typescript");
 var runSequence = require("run-sequence");
 var del = require("del");
-var path = require("path");
 
 var TS_FILES_PATH = "./src/**/*.ts";
 var MAIN_D_TS_PATH = "./typings/index.d.ts";
@@ -14,7 +13,6 @@ var BOWER_FOLDER_PATH = "./bower_components/**/*.*";
 var LIB_FOLDER_PATH = "./Build/Lib";
 var ALL_FILES_PATH = "./src/**/*.*";
 var TS_CONFIG_FILE_PATH = "tsconfig.json";
-var SOURCE_ROOT = path.join(__dirname, "Build");
 
 var tasks = {
     clear: "clear",
