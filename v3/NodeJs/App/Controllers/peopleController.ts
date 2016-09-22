@@ -27,6 +27,7 @@ export async function getById(request: Request, response: Response): Promise<voi
 export async function getByName(request: Request, response: Response): Promise<void> {
     try {
         let people = await personRepository.getByName(request.params.name);
+        response.status(status.OK).json(people);
     } catch (error) {
         response.status(status.INTERNAL_SERVER_ERROR).send(error);
     }
@@ -44,7 +45,7 @@ export async function post(request: Request, response: Response): Promise<void> 
 export async function put(request: Request, response: Response): Promise<void> {
     try {
         let person = await personRepository.update(request.params.id, request.body);
-        response.status(status.MOVED_PERMANENTLY).send(person);
+        response.status(status.OK).send(person);
     } catch (error) {
         if (error.notFound) {
             post(request, response);
