@@ -1,7 +1,6 @@
 var gulp = require("gulp");
 var ts = require("gulp-typescript");
 var sourcemaps = require("gulp-sourcemaps");
-var typescript = require("typescript");
 var runSequence = require("run-sequence");
 var del = require("del");
 
@@ -30,13 +29,11 @@ gulp.task(tasks.clear, function () {
 
 // compila os arquivos *.ts
 gulp.task(tasks.compile, function () {
-    var tsProject = ts.createProject(TS_CONFIG_FILE_PATH, {
-        typescript: typescript
-    });
+    var tsProject = ts.createProject(TS_CONFIG_FILE_PATH);
 
     return gulp.src([MAIN_D_TS_PATH, FIXES_D_TS_PATH, TS_FILES_PATH])
         .pipe(sourcemaps.init())
-        .pipe(ts(tsProject))
+        .pipe(tsProject())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(BUILD_FOLDER_PATH));
 });
