@@ -12,7 +12,7 @@ export default class PersonEditController {
     }
 
     public save(): void {
-        let response: ng.IPromise<Person>;
+        let response: Promise<Person>;
 
         if (this.person.id) {
             response = this.peopleService.put(this.person);
