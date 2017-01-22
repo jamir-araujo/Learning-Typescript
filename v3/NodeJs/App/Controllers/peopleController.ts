@@ -58,6 +58,7 @@ export async function put(request: Request, response: Response): Promise<void> {
 export async function deletePerson(request: Request, response: Response): Promise<void> {
     try {
         await personRepository.deletePerson(request.params.id);
+        response.status(status.OK).send(request.params.id);
     } catch (error) {
         response.status(status.INTERNAL_SERVER_ERROR).send(error);
     }
