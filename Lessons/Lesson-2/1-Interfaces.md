@@ -115,3 +115,5 @@ class TodayMessage implements DatedMessage {
     date: Date;
 }
 ```
+
+#### Mais detalhes neste [link](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Interfaces.md)
