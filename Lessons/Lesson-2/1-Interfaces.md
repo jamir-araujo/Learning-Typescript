@@ -74,7 +74,21 @@ interface EventHandler {
     (source: Object, args: any[]): void;
 }
 
-let handler: EventHandler = (source, args) => {
+let handler: EventHandler;
+
+handler = function (source: Object, args: any[]): void {
+
+};
+
+handler = function (source, args) {
+
+};
+
+handler = (source: Object, args: any[]): void => {
+
+};
+
+handler = (source, args) => {
 
 };
 ```
