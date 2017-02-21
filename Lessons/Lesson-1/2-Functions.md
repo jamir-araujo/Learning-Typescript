@@ -61,4 +61,4 @@ sum = (a, b) => {
 };
 ```
 
-### Mais detalhes neste [link](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Functions.md)
+#### Mais detalhes neste [link](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Functions.md)

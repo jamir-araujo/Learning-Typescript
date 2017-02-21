@@ -72,4 +72,4 @@ var logger = new ConsoleLogger();
 logger.location = "teste";
 ```
 
-### Mais detalhes neste [link](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Classes.md)
+#### Mais detalhes neste [link](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Classes.md)

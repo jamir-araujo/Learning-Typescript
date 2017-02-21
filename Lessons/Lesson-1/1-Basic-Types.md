@@ -43,4 +43,4 @@ let color: Color = Color.Red;
 ```
 
 
-### Mais detalhes neste [aqui](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Basic%20Types.md).
+#### Mais detalhes neste [link](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Basic%20Types.md).
