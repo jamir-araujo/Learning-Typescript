@@ -65,7 +65,7 @@ interface Message {
 }
 
 let message: Message = { text: "Message" };
-message.text = "Message 1"; \\ error: Cannot assign to 'text' because it is a constant or a read-only property.
+message.text = "Message 1"; // error: Cannot assign to 'text' because it is a constant or a read-only property.
 ```
 
 ## Interfaces para funções

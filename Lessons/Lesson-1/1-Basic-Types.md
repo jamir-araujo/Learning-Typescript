@@ -6,7 +6,7 @@ let enabled: boolean;
 
 enabled = true;
 enabled = false;
-enabled = "teste"; //error (Type '"teste"' is not assignable to type 'boolean')
+enabled = "teste"; // error (Type '"teste"' is not assignable to type 'boolean')
 ```
 
 ## number
@@ -67,21 +67,21 @@ Ao usar a `--strictNullChecks` é necessário especificar explicitamente que uma
 let value: number;
 
 value = 1;
-value = null; \\error: Type 'null' is not assignable to type 'number'.
-value = undefined; \\error: Type 'undefined' is not assignable to type 'number'.
+value = null; // error: Type 'null' is not assignable to type 'number'.
+value = undefined; // error: Type 'undefined' is not assignable to type 'number'.
 ```
 ```ts
 let value: number | null;
 
 value = 1;
 value = null;
-value = undefined; \\error: Type 'undefined' is not assignable to type 'number'.
+value = undefined; // error: Type 'undefined' is not assignable to type 'number'.
 ```
 ```ts
 let value: number | undefined;
 
 value = 1;
-value = null; \\error: Type 'null' is not assignable to type 'number'.
+value = null; // error: Type 'null' is not assignable to type 'number'.
 value = undefined;
 ```
 ```ts
