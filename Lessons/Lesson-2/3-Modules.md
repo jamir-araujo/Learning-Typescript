@@ -83,19 +83,19 @@ export class Queue { /** */ }
 
 No arquivo `Collections.ts`, definimos um modulo que apenas re-exporta os modulos anteriores.
 ```ts
-export {List, Dictionary} from "/Collections.Generic";
-export {Stack, Queue} from "/Collections.Primitives";
+export {List, Dictionary} from "./Collections.Generic";
+export {Stack, Queue} from "./Collections.Primitives";
 ```
 ou
 ```ts
-export * from "/Collections.Generic";
-export * from "/Collections.Primitives";
+export * from "./Collections.Generic";
+export * from "./Collections.Primitives";
 ```
 
 Desta forma é possivel importar o modulo `Collections`, e ter acesso a coleções definidas nos modulos `Collections.Generic` e `Collections.Primitives`.
 
 ```ts
-import {List, Dictionary, Stack, Queue} from "Collections";
+import {List, Dictionary, Stack, Queue} from "./Collections";
 ```
 
 ### Importando pelos efeitos no ambiente
