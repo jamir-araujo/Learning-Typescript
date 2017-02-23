@@ -1,10 +1,17 @@
 # Modulos
 
+Modulos em Typescript são basicamente definidos pelo arquivo (`.ts`) onde o código está.
+
+Por exemplo:
+
+Se você esta criando um arquivo com o nome `Utils.ts`.
+Ele será o modulo `Utils`.
+
 ## Exportando e importando Modulos
 
-### export
+### export e import
 
-É possivel exportar qualquer declaração no modulo (variáveis, funções, alias de tipos, interfaces e etc).
+É possivel exportar qualquer declaração no modulo (variáveis, funções, alias de tipos, interfaces e etc) usando a palavra reservada `export` antes da declaração.
 
 Definições no arquivo `Utils.ts`.
 ```ts
@@ -14,6 +21,8 @@ export enum WeekDay { /** */ }
 export function SortArray<T>(array: T[]): void { /** */ }
 export type EventHandler = (sender: any, args: any[]) => void;
 ```
+
+Para importar um modulo, é necessário usar a palavra reservada `import`;
 
 Importando apenas a classe `List<T>` do arquivo `Utils.ts`.
 ```ts
@@ -40,19 +49,25 @@ let list = new Utils.List<string>();
 
 ### export default
 
-O `export default` define um membro de um modulo com sendo o único membro do modulo a ser exportado.
+O `export default` define um membro de um modulo com sendo o único membro a ser exportado.
 
 Classe `List<T>` sendo definida e exportada do `default` no arquivo List.ts.
 ```ts
 export default class List<T> { /** */ }
 ```
 
-Ao importar deste modulo não é necessário especificar o membro do modulo.
+Ao importar este modulo não é necessário especificar o membro do modulo.
 ```ts
 import List from "./List";
+
+let list = new List<string>();
 ```
 
 ### Re-export
+
+É possivel re-exportar modulos ou membros de modulos.
+
+Exemplo:
 
 `Collections.Generic.ts`
 ```ts
@@ -66,7 +81,7 @@ export class Stack { /** */ }
 export class Queue { /** */ }
 ```
 
-`Collections.ts`
+No arquivo `Collections.ts`, definimos um modulo que apenas re-exporta os modulos anteriores.
 ```ts
 export {List, Dictionary} from "/Collections.Generic";
 export {Stack, Queue} from "/Collections.Primitives";
@@ -75,6 +90,12 @@ ou
 ```ts
 export * from "/Collections.Generic";
 export * from "/Collections.Primitives";
+```
+
+Desta forma é possivel importar o modulo `Collections`, e ter acesso a coleções definidas nos modulos `Collections.Generic` e `Collections.Primitives`.
+
+```ts
+import {List, Dictionary, Stack, Queue} from "Collections";
 ```
 
 ### Importando pelos efeitos no ambiente
