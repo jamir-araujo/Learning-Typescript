@@ -116,8 +116,8 @@ interface Array<T> {
 ```ts
 //função auto executavel.
 ((array: Array<any>) => {
-    array.select = (item) => { /** */ };
-    array.where = (item) => { /** */ };
+    array.select = (selector) => { /** */ };
+    array.where = (predicate) => { /** */ };
 })(Array.prototype);
 ```
 
