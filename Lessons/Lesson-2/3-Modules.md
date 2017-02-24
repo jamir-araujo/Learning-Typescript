@@ -127,3 +127,5 @@ import "./ArrayExtensions";
 ```
 
 Desta forma, ao requisitar o modulo `ArrayExtensions`, a função auto executavel vai registrar os métodos de extenção no `prototype` do Array.
+
+#### Mais detalhes neste [link](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Modules.md)

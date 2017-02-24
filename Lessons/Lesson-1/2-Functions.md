@@ -2,10 +2,18 @@
 
 ## funções sem ou com tipagem
 
+Aqui não colocamos tipos (nem para os parâmetros nem para o retorno), então o compilador assume o tipo `any` para todos.
+
+> isso pode modar com a flag de compilador `--strictNullChecks`
+
 ```ts
 function sum(a, b) {
     return a + b;
 }
+```
+
+Forma tipada.
+```ts
 
 function sum(a: number, b: number): number {
     return a + b;
@@ -45,6 +53,11 @@ function sum(a: number, b?: number): number {
 
     return a + b;
 }
+
+let result: number;
+
+result = sum(50); // result = 50
+result = sum(50, 10); // result = 60
 ```
 
 ## Funções como Lambdas (Arrow Function)

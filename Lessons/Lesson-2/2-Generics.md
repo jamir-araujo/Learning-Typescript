@@ -54,3 +54,5 @@ logLength([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 logLength({ length: 30 });
 logLength(30); // error: Argument of type '30' is not assignable to parameter of type 'Lengthwise'.
 ```
+
+#### Mais detalhes neste [link](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Generics.md)
