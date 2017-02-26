@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "amd",
+        "lib": [
+            "dom", 
+            "es2015.promise", 
+            "es5"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+        "Build"
+    ]
+}

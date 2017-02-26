@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "gulp build"
+    "build": "gulp build"
   },
   "author": "jamir.araujo",
   "license": "ISC",
@@ -14,12 +14,16 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.1",
     "express": "^4.14.0",
-    "http-errors": "^1.5.1",
-    "http-status": "^0.2.3",
-    "node-uuid": "^1.4.7",
-    "typescript": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.1.5",
-    "run-sequence": "^1.2.2"
+    "http-errors": "^1.5.1",
+    "http-status": "^0.2.3",
+    "inversify": "^3.1.0",
+    "inversify-express-utils": "^3.2.0",
+    "inversify-logger-middleware": "^3.0.0",
+    "node-uuid": "^1.4.7",
+    "reflect-metadata": "^0.1.10",
+    "run-sequence": "^1.2.2",
+    "typescript": "^2.2.1"
   }
 }
