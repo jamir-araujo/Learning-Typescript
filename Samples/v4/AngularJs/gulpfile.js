@@ -15,7 +15,7 @@ var TS_CONFIG_FILE_PATH = "tsconfig.json";
 
 var tasks = {
     clear: "clear",
-    compile: "compile-typescript",
+    transpile: "transpile",
     copy: "copy",
     copyBower: "copy-bower",
     build: "build",
@@ -28,7 +28,7 @@ gulp.task(tasks.clear, function () {
 });
 
 // compila os arquivos *.ts
-gulp.task(tasks.compile, function () {
+gulp.task(tasks.transpile, function () {
     var tsProject = ts.createProject(TS_CONFIG_FILE_PATH);
 
     return gulp.src([MAIN_D_TS_PATH, FIXES_D_TS_PATH, TS_FILES_PATH])
@@ -53,10 +53,10 @@ gulp.task(tasks.copyBower, function () {
 //build padrão
 gulp.task(tasks.build, function (callback) {
     runSequence.use(gulp);
-    return runSequence(tasks.clear, tasks.compile, tasks.copy, tasks.copyBower, callback);
+    return runSequence(tasks.clear, tasks.transpile, tasks.copy, tasks.copyBower, callback);
 });
 
 //observa mudaças nos arquivos *.ts e no arquivos tsconfig.json
 gulp.task(tasks.watch, function () {
-    gulp.watch([TS_FILES_PATH, TS_CONFIG_FILE_PATH], [tasks.compile]);
+    gulp.watch([TS_FILES_PATH, TS_CONFIG_FILE_PATH], [tasks.transpile]);
 })

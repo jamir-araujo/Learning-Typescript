@@ -16,7 +16,7 @@ describe("PeopleController", () => {
         peopleController = new PeopleController(httpStatus, mockPeopleRepository.object);
     });
 
-    it("get all should return ampty", async () => {
+    it("should return empty on getAll", async () => {
 
         let result: Person[] = [];
         mockPeopleRepository

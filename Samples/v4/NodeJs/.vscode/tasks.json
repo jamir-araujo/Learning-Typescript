@@ -6,8 +6,7 @@
         {
             "taskName": "build",
             "isBuildCommand": true,
-            "showOutput": "always",
-            "isWatching": true
+            "showOutput": "always"
         }
     ]
 }

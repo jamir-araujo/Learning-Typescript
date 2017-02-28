@@ -17,8 +17,7 @@
             "env": {
                 "NODE_ENV": "development"
             },
-            "sourceMaps": false,
-            "outDir": null
+            "sourceMaps": false
         }
     ]
 }

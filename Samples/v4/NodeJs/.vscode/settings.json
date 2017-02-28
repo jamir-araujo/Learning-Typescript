@@ -2,5 +2,5 @@
     "typescript.check.tscVersion": true,
     "typescript.tsdk": "./node_modules/typescript/lib",
     "vsicons.presets.angular": false,
-    "mocha.files.glob": "Build/test/**/*.js"
+    "mocha.files.glob": "Build/Tests/**/*.js"
 }

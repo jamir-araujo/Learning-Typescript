@@ -5,7 +5,7 @@ import * as fs from "fs";
 import * as UUID from "node-uuid";
 import * as status from "http-status";
 
-var container = new ContainerModule((bind, unbind, isBound, rebind) => {
+var module = new ContainerModule((bind, unbind, isBound, rebind) => {
 
     bind<IFileService>(IFileServiceSymbol)
         .toConstantValue(fs);
@@ -17,4 +17,4 @@ var container = new ContainerModule((bind, unbind, isBound, rebind) => {
         .toConstantValue(status);
 });
 
-export default container;
+export default module;
