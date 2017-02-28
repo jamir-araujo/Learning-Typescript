@@ -69,3 +69,4 @@
 * Bower
 * Typescript - Typings autoinstaller
 * vscode-icons
+* mocha

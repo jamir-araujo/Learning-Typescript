@@ -1,14 +1,7 @@
 const Contracts = {
-    Controllers: {
-        PeopleController: Symbol("PeopleController")
-    },
-    Repository: {
-        IPersonRepository: Symbol("IPersonRepository")
-    },
-    Utils: {
-        IFileService: Symbol("IFileService"),
-        UUID: Symbol("UUID"),
-        HttpStatus: Symbol("HttpStatus")
+    Libs: {
+        UUIDSymbol: Symbol("UUID"),
+        HttpStatusSymbol: Symbol("HttpStatus")
     }
 };
 

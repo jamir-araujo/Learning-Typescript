@@ -1,16 +1,17 @@
 import { Controller, Get, Put, Post, Delete } from 'inversify-express-utils';
 import { Request, Response } from "express";
-import {injectable, inject} from "inversify";
+import { injectable, inject } from "inversify";
 import Contracts from "../Contracts/Contracts";
+import { IPersonRepositorySymbol, IPersonRepository } from "../Contracts/Repositories/IPersonRepository";
 
-let IPersonRepository = Contracts.Repository.IPersonRepository;
-let HttpStatus = Contracts.Utils.HttpStatus;
+let HttpStatus = Contracts.Libs.HttpStatusSymbol;
 
 @injectable()
 @Controller("/")
 export default class PeopleController {
-    constructor(@inject(HttpStatus) private readonly _httpStatus: HttpStatus,
-                @inject(IPersonRepository) private readonly _personRepository: IPersonRepository) {}
+    constructor(
+        @inject(HttpStatus) private readonly _httpStatus: HttpStatus,
+        @inject(IPersonRepositorySymbol) private readonly _personRepository: IPersonRepository) { }
 
     @Get("people/")
     async getAll(request: Request, response: Response): Promise<void> {

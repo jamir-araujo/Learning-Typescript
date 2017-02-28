@@ -1,10 +1,8 @@
 import "reflect-metadata";
 import * as BadyParser from "body-parser";
 import * as cors from "cors";
-import * as containers from "./container.config";
+import container from "./IOC/container.config";
 import { InversifyExpressServer } from "inversify-express-utils";
-
-let container = containers.getContainer();
 
 let server = new InversifyExpressServer(container, null, { rootPath: "/api" });
 

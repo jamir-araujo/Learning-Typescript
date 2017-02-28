@@ -1,15 +1,17 @@
 import { injectable, inject } from "inversify";
 import Contracts from "../Contracts/Contracts";
+import { IFileServiceSymbol, IFileService } from "../Contracts/Utils/IFileService";
+import { IPersonRepository } from "../Contracts/Repositories/IPersonRepository";
 
-let IFileService = Contracts.Utils.IFileService;
-let UUID = Contracts.Utils.UUID;
+let UUID = Contracts.Libs.UUIDSymbol;
 
 @injectable()
 export default class PersonRepository implements IPersonRepository {
     private _people: Person[];
 
-    constructor( @inject(UUID) private readonly _uuid: __NodeUUID.UUID,
-        @inject(IFileService) private readonly _fs: IFileService) { }
+    constructor(
+        @inject(UUID) private readonly _uuid: __NodeUUID.UUID,
+        @inject(IFileServiceSymbol) private readonly _fs: IFileService) { }
 
     async getAll(): Promise<Person[]> {
         await this.LoadPeopleIfNotLoaded();
