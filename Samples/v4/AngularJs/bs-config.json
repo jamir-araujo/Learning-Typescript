@@ -1,6 +1,0 @@
-{
-    "port": 22100,
-    "server": {
-        "baseDir": "./Build"
-    }
-}
