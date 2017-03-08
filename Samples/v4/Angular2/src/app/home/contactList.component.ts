@@ -3,9 +3,8 @@ import { Router } from "@angular/router";
 import PeopleService from "../contracts/services/peopleService";
 
 @Component({
-    moduleId: __moduleName,
     selector: "contact-list",
-    templateUrl: "./contactList.component.html"
+    templateUrl: "./app/home/contactList.component.html"
 })
 export default class ContactListComponent implements OnInit {
     public people: Person[];

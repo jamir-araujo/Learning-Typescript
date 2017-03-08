@@ -3,9 +3,8 @@ import { Router, ActivatedRoute, Params } from "@angular/router";
 import PeopleService from "../contracts/services/peopleService";
 
 @Component({
-    moduleId: __moduleName,
     selector: "edit-contact",
-    templateUrl: "./editContact.component.html"
+    templateUrl: "./app/home/editContact.component.html"
 })
 export default class EditContactComponent implements OnInit {
     contact: Person;

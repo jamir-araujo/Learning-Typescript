@@ -1,8 +1,3 @@
 {
-<<<<<<< HEAD
-    "typescript.check.workspaceVersion": false
-=======
-    "typescript.check.workspaceVersion": true,
     "typescript.tsdk": "./node_modules/typescript/lib"
->>>>>>> 891c0b9b17d57cca41588f7eac22cea3d49f1ecf
 }

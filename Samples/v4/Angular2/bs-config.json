@@ -1,0 +1,9 @@
+{
+    "port": 22100,
+    "files": [
+        "build/**/*.{html,htm,css,js}"
+    ],
+    "server": {
+        "baseDir": "./build"
+    }
+}
