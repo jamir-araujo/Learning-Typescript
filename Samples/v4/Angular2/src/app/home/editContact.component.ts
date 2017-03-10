@@ -3,21 +3,43 @@ import { Router, ActivatedRoute, Params } from "@angular/router";
 import PeopleService from "../contracts/services/peopleService";
 
 @Component({
+    moduleId: __moduleName,
     selector: "edit-contact",
-    templateUrl: "./app/home/editContact.component.html"
+    templateUrl: "./editContact.component.html"
 })
 export default class EditContactComponent implements OnInit {
-    contact: Person;
+    private readonly EMPTY_PERSON: Person = { id: null, name: "", phone: "" };
+
+    person: Person;
 
     constructor(
         private _peopleService: PeopleService,
         private _router: Router,
         private _activatedRoute: ActivatedRoute) {
+        this.person = this.EMPTY_PERSON;
     }
 
-    async ngOnInit(): Promise<void> {
-        this.contact = await this._activatedRoute.params
-        .switchMap(async (params) => await this._peopleService.getById(params["id"]))
-        .toPromise();
+    async save(): Promise<void> {
+        if (this.person.id) {
+            this.person = await this._peopleService.put(this.person.id, this.person);
+        } else {
+            this.person = await this._peopleService.post(this.person);
+        }
+
+        await this._router.navigate([""]);
+    }
+
+    ngOnInit(): void {
+        this._activatedRoute.params
+            .switchMap(params => {
+                if (params["id"]) {
+                    return this._peopleService.getById(params["id"]);
+                } else {
+                    return new Promise((resolve) => resolve(this.EMPTY_PERSON));
+                }
+            })
+            .subscribe(person => {
+                return this.person = person;
+            });
     }
 }

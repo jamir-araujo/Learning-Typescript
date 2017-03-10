@@ -4,7 +4,7 @@ abstract class PeopleService {
     abstract getByName(name: string): Promise<Person[]>;
     abstract post(person: Person): Promise<Person>;
     abstract put(id: string, person: Person): Promise<Person>;
-    abstract delete(id: string): Promise<Person>;
+    abstract delete(id: string): Promise<void>;
 }
 
 export default PeopleService;

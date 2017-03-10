@@ -14,7 +14,7 @@ server.setConfig(app => {
 
 let app = server.build();
 
-let port = process.env.PORT || 8080;
+let port = process.env.PORT || 22009;
 app.listen(port, () => {
     console.log("server rodando na porta: " + port);
 });

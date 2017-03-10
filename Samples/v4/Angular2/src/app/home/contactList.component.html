@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+            <input type="text" [(ngModel)]="searchText" (ngModelChange)="search()" class="form-control" maxlength="200" placeholder="Busca">
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th> Nome </th>
+                    <th> Telefone </th>
+                    <th> Editar </th>
+                    <th> Excluir </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let person of people">
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.phone }}</td>
+                    <td><a [routerLink]="['/editContact', person.id]">editar</a></td>
+                    <td><a (click)="delete($event, person)">excluir</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <button class="btn btn-lg btn-primary" (click)="new()" >Novo</button>
+    </div>
+</div>

@@ -7,6 +7,7 @@ var runSequence = require("run-sequence");
 
 var paths = {
     src: "./src/**/*.*",
+    srcNoTs: "!./src/**/*.ts",
     tsFiles: "./src/**/*.ts",
     typings: "./typings/index.d.ts",
     build: "./build",
@@ -23,21 +24,24 @@ var tasks = {
 };
 
 gulp.task(tasks.clear, function (cb) {
-    return del([paths.build], cb);
+    return del(paths.build, cb);
 });
 
 gulp.task(tasks.transpile, function () {
-    var tsProject = tsc.createProject(paths.tsconfig);
+    var tsProject = tsc.createProject(paths.tsconfig, {
+        typescript: typescript
+    });
 
     return gulp.src([paths.tsFiles, paths.typings])
         .pipe(sourcemaps.init())
         .pipe(tsProject())
-        .pipe(sourcemaps.write("./"))
+        .js
+        .pipe(sourcemaps.write(".", { sourceRoot: "./src" }))
         .pipe(gulp.dest(paths.build));
 });
 
 gulp.task(tasks.copy, function () {
-    return gulp.src([paths.src])
+    return gulp.src([paths.src, paths.srcNoTs])
         .pipe(gulp.dest(paths.build));
 });
 
@@ -47,6 +51,8 @@ gulp.task(tasks.copyLibs, function () {
         "systemjs/dist/system-polyfills.js",
         "systemjs/dist/system.src.js",
         "reflect-metadata/Reflect.js",
+        "bootstrap/dist/**",
+        "jquery/dist/**",
         "rxjs/**/*.js",
         "zone.js/dist/**",
         "@angular/**/bundles/**"

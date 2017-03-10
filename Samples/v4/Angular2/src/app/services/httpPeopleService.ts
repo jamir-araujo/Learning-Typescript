@@ -12,38 +12,38 @@ export default class HttpPeopleService implements PeopleService {
     }
 
     getAll(): Promise<Person[]> {
-        return this._http.get(`${this._serverUrl}/people`)
+        return this._http.get(`${this._serverUrl}/api/people`)
             .map(value => value.json() as Person[])
             .toPromise();
     }
 
     getById(id: string): Promise<Person> {
-        return this._http.get(`${this._serverUrl}/person/${id}`)
+        return this._http.get(`${this._serverUrl}/api/person/${id}`)
             .map(value => value.json() as Person)
             .toPromise();
     }
 
     getByName(name: string): Promise<Person[]> {
-        return this._http.get(`${this._serverUrl}/people/${name}`)
+        return this._http.get(`${this._serverUrl}/api/people/${name}`)
             .map(value => value.json() as Person[])
             .toPromise();
     }
 
     post(person: Person): Promise<Person> {
-        return this._http.post(`${this._serverUrl}/person`, person)
+        return this._http.post(`${this._serverUrl}/api/person`, person)
             .map(value => value.json() as Person)
             .toPromise();
     }
 
     put(id: string, person: Person): Promise<Person> {
-        return this._http.put(`${this._serverUrl}/person/${id}`, person)
+        return this._http.put(`${this._serverUrl}/api/person/${id}`, person)
             .map(value => value.json() as Person)
             .toPromise();
     }
 
-    delete(id: string): Promise<Person> {
-        return this._http.delete(`${this._serverUrl}/person/${id}`)
-            .map(value => value.json())
+    delete(id: string): Promise<void> {
+        return this._http.delete(`${this._serverUrl}/api/person/${id}`)
+            .map(value => null)
             .toPromise();
     }
 }

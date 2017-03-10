@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { HttpModule, Http } from "@angular/http";
+import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { Routing } from "./app.routing";
 import PeopleService from "./contracts/services/peopleService";
@@ -12,6 +13,7 @@ import ContactListComponent from "./home/contactList.component";
     imports: [
         HttpModule,
         BrowserModule,
+        FormsModule,
         Routing
     ],
     declarations: [
@@ -20,8 +22,7 @@ import ContactListComponent from "./home/contactList.component";
         ContactListComponent
     ],
     providers: [
-        { provide: PeopleService, useClass: HttpPeopleService },
-        Http
+        { provide: PeopleService, useClass: HttpPeopleService }
     ],
     bootstrap: [HomeComponent]
 })
