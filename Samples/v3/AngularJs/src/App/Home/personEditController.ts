@@ -5,10 +5,11 @@ export default class PersonEditController {
 
     static $inject = ["PeopleService", "$location", "$routeParams"];
     static className = "PersonEditController";
-    constructor(private peopleService: PeopleService, private location: ng.ILocationService, private routeParams: ng.route.IRouteParamsService) {
-        if (this.routeParams["id"]) {
-            this.loadPerson(this.routeParams["id"]);
-        }
+    constructor(
+        private peopleService: PeopleService,
+        private location: ng.ILocationService,
+        private routeParams: ng.route.IRouteParamsService) {
+        this.loadPerson();
     }
 
     public save(): void {
@@ -25,9 +26,11 @@ export default class PersonEditController {
             .catch(error => alert("deu merda!"));
     }
 
-    public loadPerson(id: string): void {
-        this.peopleService.getById(id)
-            .then(person => this.person = person)
-            .catch(error => alert("deu merda!"));
+    public loadPerson(): void {
+        if (this.routeParams["id"]) {
+            this.peopleService.getById(this.routeParams["id"])
+                .then(person => this.person = person)
+                .catch(error => alert("deu merda!"));
+        }
     }
 }

@@ -1,7 +1,7 @@
 import PeopleService from "../Core/Services/PeopleService";
 
 export default class HomeController {
-    private people: Person[];
+    private people: Person[] = [];
     private search: string;
 
     static $inject = ["PeopleService", "$location"];

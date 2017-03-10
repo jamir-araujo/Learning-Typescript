@@ -1,62 +1,58 @@
 var gulp = require("gulp");
 var ts = require("gulp-typescript");
 var sourcemaps = require("gulp-sourcemaps");
+var typescript = require("typescript");
 var runSequence = require("run-sequence");
 var del = require("del");
 
-var TS_FILES_PATH = "./src/**/*.ts";
-var MAIN_D_TS_PATH = "./typings/index.d.ts";
-var FIXES_D_TS_PATH = "./typings_fixes/index.d.ts";
-var BUILD_FOLDER_PATH = "./Build";
-var BOWER_FOLDER_PATH = "./bower_components/**/*.*";
-var LIB_FOLDER_PATH = "./Build/Lib";
-var ALL_FILES_PATH = "./src/**/*.*";
-var TS_CONFIG_FILE_PATH = "tsconfig.json";
+var paths = {
+    src: "./src/**/*.*",
+    srcNoTs: "!./src/**/*.ts",
+    tsFiles: "./src/**/*.ts",
+    typings: "./typings/index.d.ts",
+    typingsFixes: "./typings_fixes/index.d.ts",
+    build: "./build",
+    libs: "./build/lib",
+    bower: "./bower_components/**/*.*",
+    tsconfig: "tsconfig.json"
+};
 
 var tasks = {
     clear: "clear",
-    compile: "compile-typescript",
+    transpile: "transpile",
     copy: "copy",
     copyBower: "copy-bower",
-    build: "build",
-    watch: "watch"
+    build: "build"
 };
 
-//deleta a pasta Build
-gulp.task(tasks.clear, function () {
-    del(BUILD_FOLDER_PATH);
+gulp.task(tasks.clear, function (cb) {
+    return del(paths.build, cb);
 });
 
-// compila os arquivos *.ts
-gulp.task(tasks.compile, function () {
-    var tsProject = ts.createProject(TS_CONFIG_FILE_PATH);
+gulp.task(tasks.transpile, function () {
+    var tsProject = ts.createProject(paths.tsconfig, {
+        typescript: typescript
+    });
 
-    return gulp.src([MAIN_D_TS_PATH, FIXES_D_TS_PATH, TS_FILES_PATH])
+    return gulp.src([paths.tsFiles, paths.typings, paths.typingsFixes])
         .pipe(sourcemaps.init())
         .pipe(tsProject())
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(BUILD_FOLDER_PATH));
+        .js
+        .pipe(sourcemaps.write(".", { sourceRoot: "./src" }))
+        .pipe(gulp.dest(paths.build));
 });
 
-//copia os arquivos ts para a pasta Build
 gulp.task(tasks.copy, function () {
-    return gulp.src([ALL_FILES_PATH])
-        .pipe(gulp.dest(BUILD_FOLDER_PATH));
+    return gulp.src([paths.src, paths.srcNoTs])
+        .pipe(gulp.dest(paths.build));
 });
 
-//copia as bibliotecas para a pasta build
 gulp.task(tasks.copyBower, function () {
-    return gulp.src([BOWER_FOLDER_PATH])
-        .pipe(gulp.dest(LIB_FOLDER_PATH));
+    return gulp.src([paths.bower])
+        .pipe(gulp.dest(paths.libs));
 });
 
-//build padrão
 gulp.task(tasks.build, function (callback) {
     runSequence.use(gulp);
-    return runSequence(tasks.clear, tasks.compile, tasks.copy, tasks.copyBower, callback);
+    return runSequence(tasks.clear, tasks.transpile, tasks.copy, tasks.copyBower, callback);
 });
-
-//observa mudaças nos arquivos *.ts e no arquivos tsconfig.json
-gulp.task(tasks.watch, function () {
-    gulp.watch([TS_FILES_PATH, TS_CONFIG_FILE_PATH], [tasks.compile]);
-})

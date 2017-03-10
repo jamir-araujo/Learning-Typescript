@@ -1,9 +1,9 @@
 var gulp = require("gulp");
-var sourcemaps = require("gulp-sourcemaps");
 var tsc = require("gulp-typescript");
+var sourcemaps = require("gulp-sourcemaps");
 var typescript = require("typescript");
-var del = require("del");
 var runSequence = require("run-sequence");
+var del = require("del");
 
 var paths = {
     src: "./src/**/*.*",
