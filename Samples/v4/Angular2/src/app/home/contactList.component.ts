@@ -28,12 +28,11 @@ export default class ContactListComponent implements OnInit {
         await this._router.navigate(["newContact"]);
     }
 
-    delete(event: any, person: Person): void {
-        this._peopleService.delete(person.id)
-            .then(() => {
-                let index = this.people.indexOf(person);
-                this.people.splice(index, 1);
-            });
+    async delete(event: any, person: Person): Promise<void> {
+        await this._peopleService.delete(person.id);
+
+        let index = this.people.indexOf(person);
+        this.people.splice(index, 1);
     }
 
     async ngOnInit(): Promise<void> {

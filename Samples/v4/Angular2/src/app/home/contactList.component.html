@@ -18,8 +18,8 @@
                 <tr *ngFor="let person of people">
                     <td>{{ person.name }}</td>
                     <td>{{ person.phone }}</td>
-                    <td><a [routerLink]="['/editContact', person.id]">editar</a></td>
-                    <td><a (click)="delete($event, person)">excluir</a></td>
+                    <td><a href="#" [routerLink]="['/editContact', person.id]">editar</a></td>
+                    <td><a href="#" (click)="delete($event, person)">excluir</a></td>
                 </tr>
             </tbody>
         </table>

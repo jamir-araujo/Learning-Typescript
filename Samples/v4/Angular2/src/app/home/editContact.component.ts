@@ -29,17 +29,12 @@ export default class EditContactComponent implements OnInit {
         await this._router.navigate([""]);
     }
 
-    ngOnInit(): void {
-        this._activatedRoute.params
-            .switchMap(params => {
-                if (params["id"]) {
-                    return this._peopleService.getById(params["id"]);
-                } else {
-                    return new Promise((resolve) => resolve(this.EMPTY_PERSON));
-                }
-            })
-            .subscribe(person => {
-                return this.person = person;
-            });
+    async ngOnInit(): Promise<void> {
+        let id = this._activatedRoute.snapshot.params.id;
+        if (id) {
+            this.person = await this._peopleService.getById(id);
+        } else {
+            this.person = this.EMPTY_PERSON;
+        }
     }
 }
