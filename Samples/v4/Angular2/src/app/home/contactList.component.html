@@ -19,7 +19,7 @@
                     <td>{{ person.name }}</td>
                     <td>{{ person.phone }}</td>
                     <td><a href="#" [routerLink]="['/editContact', person.id]">editar</a></td>
-                    <td><a href="#" (click)="delete($event, person)">excluir</a></td>
+                    <td><a href="#" (click)="delete(person)">excluir</a></td>
                 </tr>
             </tbody>
         </table>

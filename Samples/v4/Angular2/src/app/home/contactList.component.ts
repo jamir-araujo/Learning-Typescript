@@ -28,7 +28,7 @@ export default class ContactListComponent implements OnInit {
         await this._router.navigate(["newContact"]);
     }
 
-    async delete(event: any, person: Person): Promise<void> {
+    async delete(person: Person): Promise<void> {
         await this._peopleService.delete(person.id);
 
         let index = this.people.indexOf(person);
