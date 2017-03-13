@@ -4,7 +4,7 @@
 
 Aqui não colocamos tipos (nem para os parâmetros nem para o retorno), então o compilador assume o tipo `any` para todos.
 
-> isso pode modar com a flag de compilador `--strictNullChecks`
+> isso pode mudar com a flag de compilador `--noImplicitAny`
 
 ```ts
 function sum(a, b) {
