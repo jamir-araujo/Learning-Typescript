@@ -35,7 +35,7 @@ gulp.task(tasks.transpile, function () {
         .pipe(sourcemaps.init())
         .pipe(tsProject())
         .js
-        .pipe(sourcemaps.write(".", { sourceRoot: "./src" }))
+        .pipe(sourcemaps.write(".", { sourceRoot: "../src" }))
         .pipe(gulp.dest(paths.build));
 });
 

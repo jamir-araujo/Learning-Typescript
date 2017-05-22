@@ -16,10 +16,15 @@
     "express": "^4.14.0",
     "http-errors": "^1.5.1",
     "http-status": "^0.2.3",
-    "node-uuid": "^1.4.7",
-    "typescript": "^2.2.1",
+    "node-uuid": "^1.4.7"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-typescript": "^3.1.5",
-    "run-sequence": "^1.2.2"
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-typescript": "^3.1.6",
+    "lite-server": "^2.3.0",
+    "run-sequence": "^1.2.2",
+    "typescript": "^2.2.1"
   }
 }
