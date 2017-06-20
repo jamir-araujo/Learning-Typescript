@@ -17,8 +17,7 @@
             "env": {
                 "NODE_ENV": "development"
             },
-            "sourceMaps": false,
-            "outDir": null
+            "sourceMaps": false
         },
         {
             "name": "Attach",
@@ -28,7 +27,6 @@
             "address": "localhost",
             "restart": false,
             "sourceMaps": false,
-            "outDir": null,
             "localRoot": "${workspaceRoot}",
             "remoteRoot": null
         },
@@ -36,10 +34,8 @@
             "name": "Attach to Process",
             "type": "node",
             "request": "attach",
-            "processId": "${command.PickProcess}",
             "port": 5858,
-            "sourceMaps": false,
-            "outDir": null
+            "sourceMaps": false
         }
     ]
 }
