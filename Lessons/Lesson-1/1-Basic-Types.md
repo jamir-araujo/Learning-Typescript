@@ -113,7 +113,7 @@ let text: any = "test";
 let length: number = (text as string).length;
 ```
 
-Ambas as formas terão o mesmo resultado, e caso o item objecto sofrendo o cast não seja do tipo correto, nenhuma delas resultara em uma exceção ou `null`.
+Ambas as formas terão o mesmo resultado, e caso o item objeto sofrendo o cast não seja do tipo correto, nenhuma delas resultara em uma exceção ou `null`.
 
 Quando fazemos um cast errado, o erro só vai se mostrar em tempo de execução.
 ```ts
@@ -123,9 +123,9 @@ let length: string = (text as string).length.toString(); // erro em tempo de exe
 
 ## Type Aliases
 
-É possivel criar um alias para tipos.
+É possível criar um alias para tipos.
 
-Por exemplo: Se estivermos usando a flag de compilador `--strictNullChecks`. Em todos os lugares que quisermos rebeber `null` e `undefined`, teriamos que usar declarar o tipo com sendo `T | null | undefined`.
+Por exemplo: Se estivermos usando a flag de compilador `--strictNullChecks`. Em todos os lugares que quisermos receber `null` e `undefined`, teríamos que usar declarar o tipo com sendo `T | null | undefined`.
 
 Com o alias de tipos podemos criar um atalho para esta declaração.
 ```ts
@@ -137,9 +137,9 @@ value = null;
 value = undefined;
 ```
 
-## Inferêcia de tipos
+## Inferência de tipos
 
-Typescript pode consegue fazer inferêcia de tipos da mesma forma que o `var` do C#.
+Typescript pode consegue fazer inferência de tipos da mesma forma que o `var` do C#.
 
 ```ts
 let value = 1; // agora 'value' é do tipo 'number'.

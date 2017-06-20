@@ -28,7 +28,7 @@ class List<T> {
  }
 ```
 
-## Tipagem de funções genéricas
+## Tipos para funções genéricas
 ```ts
 let action: <T>(object: T) => void;
 

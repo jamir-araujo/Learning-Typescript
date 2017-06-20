@@ -1,17 +1,17 @@
 # Modulos
 
-Modulos em Typescript são basicamente definidos pelo arquivo (`.ts`) onde o código está.
+Módulos em Typescript são basicamente definidos pelo arquivo (`.ts`) onde o código está.
 
 Por exemplo:
 
 Se você esta criando um arquivo com o nome `Utils.ts`.
 Ele será o modulo `Utils`.
 
-## Exportando e importando Modulos
+## Exportando e importando Módulos
 
 ### export e import
 
-É possivel exportar qualquer declaração no modulo (variáveis, funções, alias de tipos, interfaces e etc) usando a palavra reservada `export` antes da declaração.
+É possível exportar qualquer declaração no modulo (variáveis, funções, alias de tipos, interfaces e etc) usando a palavra reservada `export` antes da declaração.
 
 Definições no arquivo `Utils.ts`.
 ```ts
@@ -65,7 +65,7 @@ let list = new List<string>();
 
 ### Re-export
 
-É possivel re-exportar modulos ou membros de modulos.
+É possível reexportar módulos ou membros de módulos.
 
 Exemplo:
 
@@ -81,7 +81,7 @@ export class Stack { /** */ }
 export class Queue { /** */ }
 ```
 
-No arquivo `Collections.ts`, definimos um modulo que apenas re-exporta os modulos anteriores.
+No arquivo `Collections.ts`, definimos um modulo que apenas reexporta os módulos anteriores.
 ```ts
 export {List, Dictionary} from "./Collections.Generic";
 export {Stack, Queue} from "./Collections.Primitives";
@@ -92,7 +92,7 @@ export * from "./Collections.Generic";
 export * from "./Collections.Primitives";
 ```
 
-Desta forma é possivel importar o modulo `Collections`, e ter acesso a coleções definidas nos modulos `Collections.Generic` e `Collections.Primitives`.
+Desta forma é possível importar o modulo `Collections`, e ter acesso a coleções definidas nos modulos `Collections.Generic` e `Collections.Primitives`.
 
 ```ts
 import {List, Dictionary, Stack, Queue} from "./Collections";
@@ -100,9 +100,9 @@ import {List, Dictionary, Stack, Queue} from "./Collections";
 
 ### Importando pelos efeitos no ambiente
 
-É possivel importar um modulo apenas pelos efeitos no ambiente.
+É possível importar um modulo apenas pelos efeitos no ambiente.
 
-Por exemplo: Criando método de extenção para o `Array<T>`.
+Por exemplo: Criando método de extensão para o `Array<T>`.
 
 * Extendemos a interface `Array<T>`, incluindo os métodos desejados.
 ```ts
@@ -112,7 +112,7 @@ interface Array<T> {
 }
 ```
 
-* Criamos um modulos no arquivo `ArrayExtensions.ts`, que implementa os métodos de extenção da interface.
+* Criamos um módulos no arquivo `ArrayExtensions.ts`, que implementa os métodos de extensão da interface.
 ```ts
 //função auto executavel.
 ((array: Array<any>) => {
@@ -126,6 +126,6 @@ interface Array<T> {
 import "./ArrayExtensions";
 ```
 
-Desta forma, ao requisitar o modulo `ArrayExtensions`, a função auto executavel vai registrar os métodos de extenção no `prototype` do Array.
+Desta forma, ao requisitar o modulo `ArrayExtensions`, a função auto executável vai registrar os métodos de extensão no `prototype` do Array.
 
 #### Mais detalhes neste [link](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Modules.md)

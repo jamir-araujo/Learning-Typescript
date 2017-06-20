@@ -1,6 +1,6 @@
 # Functions
 
-## funções sem ou com tipagem
+## funções sem ou com tipo
 
 Aqui não colocamos tipos (nem para os parâmetros nem para o retorno), então o compilador assume o tipo `any` para todos.
 
@@ -12,7 +12,7 @@ function sum(a, b) {
 }
 ```
 
-Forma tipada.
+Forma com tipo.
 ```ts
 
 function sum(a: number, b: number): number {
@@ -28,7 +28,7 @@ let sum = function (a: number, b: number): number {
 }
 ```
 
-## Tipagem para funções
+## tipos para funções
 
 ```ts
 let sum: (a: number, b: number) => number;
